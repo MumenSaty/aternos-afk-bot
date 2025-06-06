@@ -1,46 +1,50 @@
-require('dotenv').config();
 const mineflayer = require('mineflayer');
 const http = require('http');
 
 function startBot() {
   const bot = mineflayer.createBot({
-    host: process.env.SERVER_HOST,
-    port: parseInt(process.env.SERVER_PORT, 10),
-    username: process.env.BOT_USERNAME,
+    host: process.env.SERVER_HOST || 'servername.aternos.me',
+    port: parseInt(process.env.SERVER_PORT) || 20540,
+    username: process.env.BOT_USERNAME || 'VanirMC',
     auth: 'offline',
-    version: false // auto-detect server version
+    version: false // auto-detect
   });
 
   bot.once('spawn', () => {
-    console.log(`✅ ${process.env.BOT_USERNAME} joined and is AFK.`);
+    console.log('✅ Bot joined the server.');
 
-    // Keep walking forward and swinging arm to prevent AFK kick
+    // Move forward endlessly to avoid AFK kick
     bot.setControlState('forward', true);
-    setInterval(() => {
-      bot.swingArm();
-    }, 2000);
   });
 
   bot.on('end', () => {
-    console.warn('⚠️ Disconnected. Reconnecting in 10 seconds...');
+    console.warn('⚠️ Disconnected, reconnecting in 10 seconds...');
     setTimeout(startBot, 10000);
   });
 
-  bot.on('kicked', (reason) => {
-    console.warn('❌ Kicked:', reason);
+  bot.on('error', (err) => {
+    console.error('❌ Bot error:', err.message);
+    // reconnect on common network errors
+    if (['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT'].includes(err.code)) {
+      console.log('🔁 Retrying connection in 15 seconds...');
+      setTimeout(startBot, 15000);
+    }
   });
 
-  bot.on('error', (err) => {
-    console.error('❌ Error:', err.message);
+  bot.on('kicked', (reason) => {
+    console.warn('❌ Kicked from server:', reason);
+    // reconnect after kick
+    setTimeout(startBot, 15000);
   });
 }
 
+// Start bot for first time
 startBot();
 
-// Keep Render.com web service alive
+// HTTP server to keep Render free tier alive
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('AFK bot is active.\n');
+  res.end('AFK Bot is running\n');
 }).listen(process.env.PORT || 3000, () => {
-  console.log(`🌐 Web server running on port ${process.env.PORT || 3000}`);
+  console.log(`🌐 HTTP server running on port ${process.env.PORT || 3000}`);
 });
