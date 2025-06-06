@@ -1,13 +1,16 @@
 {
   "name": "vanir-afk-bot",
   "version": "1.0.0",
-  "description": "AFK bot for Aternos with Render deploy",
+  "description": "A Minecraft AFK bot for Aternos using mineflayer and hosted on Render",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "keywords": ["minecraft", "afk", "bot", "mineflayer", "aternos", "geyser", "render"],
+  "author": "Vanir Project",
+  "license": "MIT",
   "dependencies": {
-    "mineflayer": "*",
-    "http": "^0.0.1-security"
+    "mineflayer": "^4.17.1",
+    "dotenv": "^16.3.1"
   }
 }
