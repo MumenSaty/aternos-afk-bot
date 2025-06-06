@@ -1,3 +1,5 @@
+---
+
 <p align="center">
   <pre style="font-family: monospace; font-size:14px; color:#79c0ff; background:#0d1117; padding:10px; border-radius:8px; display:inline-block; user-select:none;">
  __     __       _       _       
@@ -44,17 +46,18 @@ It’s perfect for servers hosted on platforms like **Aternos**, **Render.com**,
 
 ## 📋 Setup Guide
 
-### 1. Clone or download this repo:
+### 1. Fork this repository on GitHub
+
+Click the **Fork** button at the top right corner of this repo page to create your own copy.
+
+### 2. Clone your forked repo locally or edit directly on GitHub Codespaces / your favorite IDE
+
+### 3. Install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/vanir-afk-bot.git
-cd vanir-afk-bot
-
-2. Install dependencies:
-
 npm install
 
-3. Configure environment variables:
+4. Configure environment variables:
 
 Create a .env file in the root directory with the following content:
 
@@ -72,7 +75,7 @@ Choose a BOT_USERNAME that looks human, e.g. Steve_01
 Keep PORT=3000 unless you want to use a different port for the HTTP server
 
 
-4. Run the bot locally:
+5. Run the bot locally:
 
 npm start
 
@@ -89,7 +92,7 @@ Steps:
 
 Create a new Web Service on Render
 
-Connect your GitHub repo or upload the code
+Connect your GitHub fork repo
 
 Set Build Command: npm install
 
@@ -153,3 +156,4 @@ MIT License — free to use and modify for your personal projects!
 
 <p align="center" style="color:#8b949e; font-size:12px;">Vanir AFK Bot © 2025 — Keeping your Minecraft server online and active.</p>
 ```
+---
