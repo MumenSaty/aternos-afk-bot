@@ -1,5 +1,5 @@
 
-# 🚀 Vanir AFK Bot
+# 🚀 Aternos AFK Bot
 
 Keep your Minecraft server active 24/7 with this simple AFK bot!  
 Deploy it on **Render.com** for free always-online hosting and connect it to your **Aternos Paper server**.
@@ -17,7 +17,7 @@ Deploy it on **Render.com** for free always-online hosting and connect it to you
 2. **Enable Geyser and Floodgate plugins if you want Bedrock support.**  
    - Configure Floodgate properly to avoid username conflicts.  
 3. **Find your server’s IP and port:**  
-   - Typically something like `vanirmcpe.aternos.me` and a port like `20540`.  
+   - Typically something like `servername.aternos.me` and a port like `19132`.  
 4. **Disable or relax AFK kick plugins/settings.**  
    - The bot needs to move or act to avoid getting kicked for inactivity.  
 5. Optionally, give your bot **operator permissions** or put it in **creative/spectator mode** to avoid mob kills.
@@ -36,7 +36,7 @@ Deploy it on **Render.com** for free always-online hosting and connect it to you
 2. Click **New → Web Service**.  
 3. Connect your GitHub and select your forked repo.  
 4. Configure:  
-   - **Name:** `vanir-afk-bot` (or your choice)  
+   - **Name:** `afk-bot` (or your choice)  
    - **Region:** Closest to your location  
    - **Branch:** `main` (or default branch)  
 5. Set the commands:  
@@ -88,21 +88,16 @@ Adjust Floodgate config if Bedrock players have issues joining.
 
 ---
 
-📋 Copy-paste this .env for Render Environment Variables
 
-```env
-SERVER_HOST=servername.aternos.me
-SERVER_PORT=19132
-BOT_USERNAME=BOT
-PORT=3000
-```
+## 💬 Support & Community - Join the Vanir Discord!
 
+Need help with setup or want to chat? Join our friendly Discord server!
 
----
+[![Join Vanir Discord](https://img.shields.io/discord/1058001512843817018?label=Join%20Vanir%20Discord&style=for-the-badge)](https://discord.gg/vanir)
 
-💬 Need Help?
+or
 
-Click the button below to join the Vanir Discord Server for support and community:
+[👉 **Join the Vanir Discord Server!**](https://discord.gg/vanir)
 
 
 
