@@ -1,5 +1,5 @@
 
-# 🚀 Aternos AFK Bot
+# 🚀 Vanir Aternos AFK Bot
 
 Keep your Minecraft server active 24/7 with this simple AFK bot!  
 Deploy it on **Render.com** for free always-online hosting and connect it to your **Aternos Paper server**.
@@ -93,7 +93,7 @@ Adjust Floodgate config if Bedrock players have issues joining.
 
 Need help with setup or want to chat? Join our friendly Discord server!
 
-[![Join Vanir Discord](https://img.shields.io/discord/1058001512843817018?label=Join%20Vanir%20Discord&style=for-the-badge)](https://discord.gg/vanir)
+[![Join Vanir Discord](https://img.shields.io/discord/1058001512843817018?label=Join%20Vanir%20Support%20Discord&style=for-the-badge)](https://discord.gg/vanir)
 
 or
 
