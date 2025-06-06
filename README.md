@@ -54,15 +54,17 @@ Click the **Fork** button at the top right corner of this repo page to create yo
 
 ```bash
 npm install
+```
 
 4. Configure environment variables:
 
 Create a .env file in the root directory with the following content:
 
-SERVER_HOST=your_server_address_here
+```SERVER_HOST=your_server_address_here
 SERVER_PORT=25565
 BOT_USERNAME=YourBotName
 PORT=3000
+```
 
 Replace your_server_address_here with your server IP or domain (e.g. vanirmcpe.aternos.me)
 
@@ -75,7 +77,8 @@ Keep PORT=3000 unless you want to use a different port for the HTTP server
 
 5. Run the bot locally:
 
-npm start
+```npm start
+```
 
 You should see console logs confirming the bot joined your server and is walking forward to avoid AFK kicks.
 
@@ -92,9 +95,9 @@ Create a new Web Service on Render
 
 Connect your GitHub fork repo
 
-Set Build Command: npm install
+Set Build Command: ```npm install```
 
-Set Start Command: node index.js
+Set Start Command: ```node index.js```
 
 Add environment variables in the Render dashboard matching your .env file
 
