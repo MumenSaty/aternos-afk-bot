@@ -1,4 +1,3 @@
----
 
 <p align="center">
   <pre style="font-family: monospace; font-size:14px; color:#79c0ff; background:#0d1117; padding:10px; border-radius:8px; display:inline-block; user-select:none;">
@@ -13,7 +12,6 @@
 
 <h1 align="center" style="color:#58a6ff;">Vanir AFK Bot for Minecraft Java Servers</h1>
 
----
 
 ## 🔥 What is Vanir AFK Bot?
 
