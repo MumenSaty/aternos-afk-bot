@@ -44,11 +44,18 @@ Deploy it on **Render.com** for free always-online hosting and connect it to you
    - **Start Command:** `node index.js`  
 6. Add environment variables exactly as below:  
 
-```env
+```bash
+# Your Aternos server host (no "https://" or slashes)
 SERVER_HOST=servername.aternos.me
-SERVER_PORT=19132
-BOT_USERNAME=BOT
-PORT=3000 
+
+# Your server port (default for Java: 25565, use correct one if different)
+SERVER_PORT=
+
+# Bot username (must not match your real player name)
+BOT_USERNAME=
+
+# Web port for Render (do not change)
+PORT=3000
 ```
 
 7. Click Create Web Service.
