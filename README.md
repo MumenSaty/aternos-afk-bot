@@ -93,6 +93,8 @@ Adjust Floodgate config if Bedrock players have issues joining.
 
 Need help with setup or want to chat? Join our friendly Discord server!
 
+<iframe src="https://discord.com/widget?id=1352670524395880549&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
 [![Join Discord](https://img.shields.io/discord/1352670524395880549?label=Join%20Vanir%20Support%20Discord%20&style=for-the-badge)](https://discord.gg/W4HBMCRFPF)
 
 or
