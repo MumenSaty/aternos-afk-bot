@@ -1,160 +1,114 @@
 
-<p align="center">
-  <pre style="font-family: monospace; font-size:14px; color:#79c0ff; background:#0d1117; padding:10px; border-radius:8px; display:inline-block; user-select:none;">
- __     __       _       _       
- \ \   / /__ _ _| |_ ___| |__ ___
-  \ \ / / _ \ '_|  _/ _ \ / /(_-<
-   \_/_/\___/_|  \__\___/_\_\/__/
+# 🚀 Vanir AFK Bot
 
-      Vanir AFK Bot - Keep your Minecraft server online
-  </pre>
-</p>
-
-<h1 align="center" style="color:#58a6ff;">Vanir AFK Bot for Minecraft Java Servers</h1>
-
-
-## 🔥 What is Vanir AFK Bot?
-
-Vanir AFK Bot is a lightweight, reliable Minecraft Java Edition bot designed to **keep your server online by preventing AFK kicks** and **avoiding server idle timeouts**.  
-
-It’s perfect for servers hosted on platforms like **Aternos**, **Render.com**, or any other host that shuts down when no players are online.
+Keep your Minecraft server active 24/7 with this simple AFK bot!  
+Deploy it on **Render.com** for free always-online hosting and connect it to your **Aternos Paper server**.
 
 ---
 
-## ⚙️ Features & Benefits
-
-- **Auto reconnect:** If disconnected, the bot will try to reconnect automatically after 10 seconds  
-- **Anti-AFK:** The bot continuously walks forward and swings its arm periodically to appear active  
-- **Offline mode support:** Works with cracked or offline mode servers without Mojang authentication  
-- **Version auto-detection:** No need to hardcode the Minecraft server version  
-- **Light HTTP server:** Keeps your Render.com service alive to avoid automatic sleep  
-- **Human-like username:** Use a custom name to blend in and avoid suspicion  
-- **Minimal dependencies:** Only `mineflayer` and `dotenv` required
+## 🌑 Dark Mode Ready — Powered by Mineflayer
 
 ---
 
-## 🛠️ Prerequisites
+## 🔧 Step 1: Prepare Your Aternos Server
 
-- Node.js **v16** or higher installed  
-- Basic knowledge of terminal/command line  
-- Access to your Minecraft server IP and port  
-- Optional: A free [Render.com](https://render.com) account to host the bot 24/7  
+1. **Create or use an existing Aternos Minecraft server.**  
+   - Must be a **Paper** (Java Edition) server, version compatible with the bot (1.21.5 recommended).  
+2. **Enable Geyser and Floodgate plugins if you want Bedrock support.**  
+   - Configure Floodgate properly to avoid username conflicts.  
+3. **Find your server’s IP and port:**  
+   - Typically something like `vanirmcpe.aternos.me` and a port like `20540`.  
+4. **Disable or relax AFK kick plugins/settings.**  
+   - The bot needs to move or act to avoid getting kicked for inactivity.  
+5. Optionally, give your bot **operator permissions** or put it in **creative/spectator mode** to avoid mob kills.
 
 ---
 
-## 📋 Setup Guide
+## ⚙️ Step 2: Fork This Repository
 
-### 1. Fork this repository on GitHub
+- Fork this repo to your GitHub account so you can connect it to Render.
 
-Click the **Fork** button at the top right corner of this repo page to create your own copy.
+---
 
-### 2. Clone your forked repo locally or edit directly on GitHub Codespaces / your favorite IDE
+## ☁️ Step 3: Deploy on Render.com
 
-### 3. Install dependencies:
+1. Sign up or log in at [Render.com](https://render.com).  
+2. Click **New → Web Service**.  
+3. Connect your GitHub and select your forked repo.  
+4. Configure:  
+   - **Name:** `vanir-afk-bot` (or your choice)  
+   - **Region:** Closest to your location  
+   - **Branch:** `main` (or default branch)  
+5. Set the commands:  
+   - **Build Command:** `npm install`  
+   - **Start Command:** `node index.js`  
+6. Add environment variables exactly as below:  
 
-```bash
-npm install
+```env
+SERVER_HOST=servername.aternos.me
+SERVER_PORT=19132
+BOT_USERNAME=BOT
+PORT=3000 
 ```
 
-4. Configure environment variables:
+7. Click Create Web Service.
 
-Create a .env file in the root directory with the following content:
 
-```SERVER_HOST=your_server_address_here
-SERVER_PORT=25565
-BOT_USERNAME=YourBotName
+8. Wait for Render to build and start your bot.
+
+
+
+
+---
+
+🟢 Step 4: Verify & Monitor
+
+Check Render’s Logs tab to see your bot’s connection status.
+
+The bot will automatically reconnect if disconnected.
+
+It will move continuously to prevent AFK kicks.
+
+
+
+---
+
+🛠️ Tips & Troubleshooting
+
+Double-check your Aternos server IP and port.
+
+If the bot disconnects frequently, review server logs.
+
+Use operator or creative mode to keep your bot safe from mobs.
+The HTTP server on port 3000 keeps Render from sleeping your bot.
+
+Adjust Floodgate config if Bedrock players have issues joining.
+
+
+
+---
+
+📋 Copy-paste this .env for Render Environment Variables
+
+```env
+SERVER_HOST=servername.aternos.me
+SERVER_PORT=19132
+BOT_USERNAME=BOT
 PORT=3000
 ```
 
-Replace your_server_address_here with your server IP or domain (e.g. vanirmcpe.aternos.me)
-
-Replace 25565 with your server port
-
-Choose a BOT_USERNAME that looks human, e.g. Steve_01
-
-Keep PORT=3000 unless you want to use a different port for the HTTP server
-
-
-5. Run the bot locally:
-
-```npm start
-```
-
-You should see console logs confirming the bot joined your server and is walking forward to avoid AFK kicks.
-
 
 ---
 
-🚀 Deploy on Render.com (Free Hosting)
+💬 Need Help?
 
-Render.com provides a free tier that works well for hosting your bot 24/7.
+Click the button below to join the Vanir Discord Server for support and community:
 
-Steps:
-
-Create a new Web Service on Render
-
-Connect your GitHub fork repo
-
-Set Build Command: ```npm install```
-
-Set Start Command: ```node index.js```
-
-Add environment variables in the Render dashboard matching your .env file
-
-Deploy and enjoy your bot staying online around the clock!
 
 
 
 ---
 
-🔒 Important Notes
+Made with ❤️ by Vanir Team
+Keep your Minecraft world alive, one bot at a time.
 
-The bot only works on offline/cracked mode servers without Mojang authentication
-
-To prevent bot death, consider setting it in creative or spectator mode if your server allows
-
-Avoid using obvious bot usernames (e.g., AFK_Bot_01) to prevent being banned or kicked
-
-Regularly check logs for errors and reconnect attempts
-
-
-
----
-
-🧩 How the Bot Prevents AFK Kicks
-
-The bot continuously:
-
-Holds the forward key to simulate walking
-
-Swings its arm every 2 seconds to mimic player activity
-
-Auto-reconnects if disconnected or kicked
-
-
-This behavior fools server anti-AFK plugins or built-in idle checks, keeping the bot — and thus your server — online.
-
-
----
-
-🤝 Support & Community
-
-Need help or want to chat? Join our Discord support server:
-
-<p align="center">
-  <a href="https://discord.gg/vanir" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/Discord-Join%20Support%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord Support Server"/>
-  </a>
-</p>
----
-
-📄 License
-
-MIT License — free to use and modify for your personal projects!
-
-
----
-
-<p align="center" style="color:#8b949e; font-size:12px;">Vanir AFK Bot © 2025 — Keeping your Minecraft server online and active.</p>
-```
----
