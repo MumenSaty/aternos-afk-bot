@@ -1,4 +1,4 @@
-
+9
 # 🚀 Vanir Aternos AFK Bot
 
 Keep your Minecraft server active 24/7 with this simple AFK bot!  
