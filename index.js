@@ -56,3 +56,7 @@ setInterval(() => {
     .then(() => console.log('Self-ping successful'))
     .catch(() => console.log('Self-ping failed'));
 }, 300000); // Every 5 minutes
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Bot is alive!'));
+app.listen(3000);
