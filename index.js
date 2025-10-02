@@ -1,30 +1,47 @@
-const mineflayer = require('mineflayer');
-const http = require('http');
+// Load environment variables
+require('dotenv').config();
 
+const mineflayer = require('mineflayer');
+const express = require('express');
+const axios = require('axios');
+
+// 🌐 Express server to keep Render alive
+const app = express();
+app.get('/', (req, res) => res.send('Bot is alive!'));
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`🌐 Express server running on port ${process.env.PORT || 3000}`);
+});
+
+// 🔁 Self-ping to prevent Render from sleeping
+const pingUrl = 'https://your-app-name.onrender.com'; // Replace with your actual Render URL
+setInterval(() => {
+  axios.get(pingUrl)
+    .then(() => console.log('🔁 Self-ping successful'))
+    .catch(() => console.warn('⚠️ Self-ping failed'));
+}, 300000); // Every 5 minutes
+
+// 🤖 Start the AFK bot
 function startBot() {
   const bot = mineflayer.createBot({
     host: process.env.SERVER_HOST || 'servername.aternos.me',
-    port: parseInt(process.env.SERVER_PORT) || 20540,
+    port: parseInt(process.env.SERVER_PORT) || 25565,
     username: process.env.BOT_USERNAME || 'VanirMC',
     auth: 'offline',
     version: false // auto-detect
   });
 
   bot.once('spawn', () => {
-    console.log('✅ Bot joined the server.');
-
-    // Move forward endlessly to avoid AFK kick
-    bot.setControlState('forward', true);
+    console.log('✅ Bot joined the server');
+    bot.setControlState('forward', true); // Move to avoid AFK kick
   });
 
   bot.on('end', () => {
-    console.warn('⚠️ Disconnected, reconnecting in 10 seconds...');
+    console.warn('⚠️ Bot disconnected, reconnecting in 10 seconds...');
     setTimeout(startBot, 10000);
   });
 
   bot.on('error', (err) => {
     console.error('❌ Bot error:', err.message);
-    // reconnect on common network errors
     if (['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT'].includes(err.code)) {
       console.log('🔁 Retrying connection in 15 seconds...');
       setTimeout(startBot, 15000);
@@ -32,31 +49,9 @@ function startBot() {
   });
 
   bot.on('kicked', (reason) => {
-    console.warn('❌ Kicked from server:', reason);
-    // reconnect after kick
+    console.warn('❌ Bot kicked:', reason);
     setTimeout(startBot, 15000);
   });
 }
 
-// Start bot for first time
 startBot();
-
-// HTTP server to keep Render free tier alive
-http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('AFK Bot is running\n');
-}).listen(process.env.PORT || 3000, () => {
-  console.log(`🌐 HTTP server running on port ${process.env.PORT || 3000}`);
-});
-const axios = require('axios');
-const url = 'https://adwadsdwa.onrender.com'; // Replace with your actual Render URL
-
-setInterval(() => {
-  axios.get(url)
-    .then(() => console.log('Self-ping successful'))
-    .catch(() => console.log('Self-ping failed'));
-}, 300000); // Every 5 minutes
-const express = require('express');
-const app = express();
-app.get('/', (req, res) => res.send('Bot is alive!'));
-app.listen(3000);
