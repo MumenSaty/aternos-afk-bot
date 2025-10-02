@@ -13,7 +13,7 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 // 🔁 Self-ping to prevent Render from sleeping
-const pingUrl = 'https://your-app-name.onrender.com'; // Replace with your actual Render URL
+const pingUrl = 'https://adwadsdwa.onrender.com'; // Replace with your actual Render URL
 setInterval(() => {
   axios.get(pingUrl)
     .then(() => console.log('🔁 Self-ping successful'))
