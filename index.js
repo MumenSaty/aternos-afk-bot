@@ -36,21 +36,21 @@ function startBot() {
   });
 
   bot.on('end', () => {
-    console.warn('⚠️ Bot disconnected, reconnecting in 10 seconds...');
-    setTimeout(startBot, 10000);
+    console.warn('⚠️ Bot disconnected, reconnecting in 2 minutes...');
+    setTimeout(startBot, 120000);
   });
 
   bot.on('error', (err) => {
     console.error('❌ Bot error:', err.message);
     if (['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT'].includes(err.code)) {
-      console.log('🔁 Retrying connection in 15 seconds...');
-      setTimeout(startBot, 15000);
+      console.log('🔁 Retrying connection in 2 minutes...');
+      setTimeout(startBot, 120000);
     }
   });
 
   bot.on('kicked', (reason) => {
     console.warn('❌ Bot kicked:', reason);
-    setTimeout(startBot, 150000);
+    setTimeout(startBot, 120000);
   });
   bot.on('kicked', (reason) => {
   console.warn('❌ Kicked from server:', reason);
