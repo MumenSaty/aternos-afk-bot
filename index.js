@@ -52,6 +52,10 @@ function startBot() {
     console.warn('❌ Bot kicked:', reason);
     setTimeout(startBot, 15000);
   });
+  bot.on('kicked', (reason) => {
+  console.warn('❌ Kicked from server:', reason);
+  });
+
 }
 
 startBot();
