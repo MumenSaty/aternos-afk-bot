@@ -48,3 +48,11 @@ http.createServer((req, res) => {
 }).listen(process.env.PORT || 3000, () => {
   console.log(`🌐 HTTP server running on port ${process.env.PORT || 3000}`);
 });
+const axios = require('axios');
+const url = 'https://adwadsdwa.onrender.com'; // Replace with your actual Render URL
+
+setInterval(() => {
+  axios.get(url)
+    .then(() => console.log('Self-ping successful'))
+    .catch(() => console.log('Self-ping failed'));
+}, 300000); // Every 5 minutes
